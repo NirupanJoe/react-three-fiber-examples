@@ -4,18 +4,16 @@ import { React } from 'react';
 const control = () => useControls('Box', {
 	rotation: [0, 0, 0],
 	position: [0, 0, 0],
-	width: 5,
-	height: 5,
-	depth: 5,
+	args: [1, 1, 1],
 	color: '#b70303',
 });
 
 const SimpleBox = () => {
-	const { color, ...props } = control();
+	const { color, args, ...props } = control();
 
 	return (
-		<mesh>
-			<boxBufferGeometry { ...props }/>
+		<mesh { ...props }>
+			<boxBufferGeometry args={ args }/>
 			<meshBasicMaterial color={ color }/>
 		</mesh>);
 };
