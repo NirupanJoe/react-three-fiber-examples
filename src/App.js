@@ -12,14 +12,18 @@ const Example = () => useControls('Example', {
 	OrbitControl: folder({
 		enabled: false,
 	}),
+	BackGround: folder({
+		color: '#6fba93',
+	}, { collapsed: true }),
 });
 
 const App = () => {
-	const { Selection, ...oProps } = Example();
+	const { Selection, color, ...oProps } = Example();
 
 	return (
 		<div className="App" role="App">
 			<Canvas>
+				<color attach="background" args={ [color] }/>
 				<Selection/>
 				<OrbitControls { ...oProps }/>
 			</Canvas>
