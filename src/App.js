@@ -1,24 +1,29 @@
+import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import { useControls } from 'leva';
+import { folder, useControls } from 'leva';
 import { React } from 'react';
 import './App.scss';
 import examples from './examples';
 
-const Example = () => {
-	const { Selection } = useControls('Example', {
-		Selection: {
-			options: examples,
-		},
-	});
+const Example = () => useControls('Example', {
+	Selection: {
+		options: examples,
+	},
+	OrbitControl: folder({
+		enabled: false,
+	}),
+});
 
-	return <Selection/>;
+const App = () => {
+	const { Selection, ...oProps } = Example();
+
+	return (
+		<div className="App" role="App">
+			<Canvas>
+				<Selection/>
+				<OrbitControls { ...oProps }/>
+			</Canvas>
+		</div>);
 };
-
-const App = () =>
-	<div className="App" role="App">
-		<Canvas>
-			<Example/>
-		</Canvas>
-	</div>;
 
 export default App;
