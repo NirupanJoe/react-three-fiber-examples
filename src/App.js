@@ -5,27 +5,25 @@ import { React } from 'react';
 import './App.scss';
 import examples from './examples';
 
-const Example = () => useControls('Example', {
-	Selection: {
+const getInput = () => useControls({
+	Example: {
 		options: examples,
 	},
-	OrbitControl: folder({
-		enabled: false,
-	}),
-	BackGround: folder({
+	orbitControl: true,
+	Background: folder({
 		color: '#6fba93',
 	}, { collapsed: true }),
 });
 
 const App = () => {
-	const { Selection, color, ...oProps } = Example();
+	const { Example, color, orbitControl } = getInput();
 
 	return (
 		<div className="App" role="App">
 			<Canvas>
 				<color attach="background" args={ [color] }/>
-				<Selection/>
-				<OrbitControls { ...oProps }/>
+				<Example/>
+				{ orbitControl &&	<OrbitControls/> }
 			</Canvas>
 		</div>);
 };
