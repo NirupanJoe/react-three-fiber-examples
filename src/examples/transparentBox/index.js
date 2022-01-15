@@ -1,7 +1,7 @@
 /* eslint-disable no-magic-numbers */
-import { Box, Environment, Sphere } from '@react-three/drei';
+import { Box, Sphere } from '@react-three/drei';
 import { useControls } from 'leva';
-import React, { Suspense } from 'react';
+import React from 'react';
 
 // eslint-disable-next-line max-lines-per-function
 const control = () => {
@@ -11,16 +11,6 @@ const control = () => {
 			position: [0, -1, 0],
 			args: [1, 1, 1],
 			scale: 1,
-			smoothness: 10,
-			radius: 0.015,
-			background: false,
-			preset: {
-				options: {
-					forest: 'forest',
-					sunset: 'sunset',
-					lobby: 'lobby',
-				},
-			},
 		}, { collapsed: true }
 	);
 	const bMProps = useControls(
@@ -72,15 +62,12 @@ const TransparentBox = () => {
 		<mesh>
 			<ambientLight/>
 			<directionalLight/>
-			<Suspense fallback={ null }>
-				<Box { ...bProps }>
-					<meshPhysicalMaterial { ...bMProps }/>
-				</Box>
-				<Sphere { ...pProps }>
-					<meshPhysicalMaterial { ...sMProps }/>
-				</Sphere>
-				<Environment preset="sunset"/>
-			</Suspense>
+			<Box { ...bProps }>
+				<meshPhysicalMaterial { ...bMProps }/>
+			</Box>
+			<Sphere { ...pProps }>
+				<meshPhysicalMaterial { ...sMProps }/>
+			</Sphere>
 		</mesh>
 	);
 };
