@@ -15,16 +15,18 @@ const control = () => {
 	);
 	const bMProps = useControls(
 		'Box material', {
-			transmission: { value: 0, min: 0, max: 1, step: 0.1 },
-			opacity: { value: 0.5, min: 0, max: 1, step: 0.1 },
-			metalness: { value: 1, min: 0, max: 1, step: 0.1 },
+			transmission: { value: 1, min: 0, max: 1, step: 0.1 },
+			opacity: { value: 1, min: 0, max: 1, step: 0.1 },
+			metalness: { value: 0, min: 0, max: 1, step: 0.1 },
 			roughness: { value: 0, min: 0, max: 1, step: 0.1 },
-			clearcoat: { value: 0, min: 0, max: 1, step: 0.1 },
+			clearcoat: { value: 1, min: 0, max: 1, step: 0.1 },
 			clearcoatRoughness: { value: 0, min: 0, max: 1, step: 0.1 },
-			reflectivity: { value: 0, min: 0, max: 1, step: 0.1 },
-			thickness: { value: 0, min: 0, max: 20, step: 0.5 },
-			envMapIntensity: { value: 0.5, min: 0, max: 10, step: 1 },
-			transparent: true,
+			reflectivity: { value: 0.1, min: 0, max: 1, step: 0.1 },
+			thickness: { value: 5, min: 0, max: 20, step: 0.5 },
+			envMapIntensity: { value: 25, min: 0, max: 100, step: 1 },
+			ior: { value: 1.25, min: 1, max: 2.3, step: 0.05 },
+			color: '#ffffff',
+			transparent: false,
 		}, { collapsed: true }
 	);
 	const pProps = useControls(
@@ -37,7 +39,7 @@ const control = () => {
 	);
 	const sMProps = useControls(
 		'Sphere material', {
-			transmission: { value: 1, min: 0, max: 1, step: 0.1 },
+			transmission: { value: 0, min: 0, max: 1, step: 0.1 },
 			opacity: { value: 1, min: 0, max: 1, step: 0.1 },
 			metalness: { value: 1, min: 0, max: 1, step: 0.1 },
 			roughness: { value: 0, min: 0, max: 1, step: 0.1 },
@@ -47,7 +49,7 @@ const control = () => {
 			thickness: { value: 0, min: 0, max: 20, step: 0.5 },
 			envMapIntensity: { value: 1, min: 0, max: 10, step: 1 },
 			ior: { value: 1.25, min: 1, max: 2.3, step: 0.05 },
-			transparent: true,
+			transparent: false,
 			color: '#ffffff',
 		}, { collapsed: true }
 	);
@@ -60,8 +62,6 @@ const TransparentBox = () => {
 
 	return (
 		<mesh>
-			<ambientLight/>
-			<directionalLight/>
 			<Box { ...bProps }>
 				<meshPhysicalMaterial { ...bMProps }/>
 			</Box>

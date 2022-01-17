@@ -34,8 +34,7 @@ const App = () => {
 			<Canvas style={ { background: color } }>
 				<Suspense fallback={ null }>
 					<Example/>
-					{ environment
-			&& <Environment background={ true } preset={ preset }/>}
+					 <Environment background={ environment } preset={ preset }/>
 				</Suspense>
 				{ orbitControl && <OrbitControls/> }
 			</Canvas>
