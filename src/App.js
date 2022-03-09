@@ -17,7 +17,7 @@ const getInput = () => useControls({
 	Example: {
 		options: examples,
 	},
-	orbitControl: true,
+	orbitControl: false,
 	Camera: {
 		options: camera,
 	},
@@ -37,7 +37,7 @@ const getInput = () => useControls({
 	}, { collapsed: true }),
 });
 
-const App = () => {
+const App = (context) => {
 	const { Example, color, orbitControl, environment, preset,
 		Camera } = getInput();
 
@@ -46,7 +46,7 @@ const App = () => {
 			<Canvas style={ { background: color } }>
 				<Camera/>
 				<Suspense fallback={ null }>
-					<Example/>
+					<Example { ...context }/>
 					<Environment background={ environment } preset={ preset }/>
 				</Suspense>
 				{ orbitControl && <OrbitControls/> }
