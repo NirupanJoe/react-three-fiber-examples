@@ -37,21 +37,35 @@ const getInput = () => useControls({
 	}, { collapsed: true }),
 });
 
-const App = (context) => {
-	const { Example, color, orbitControl, environment, preset,
-		Camera } = getInput();
+const Ready = ({ patchState, state }) =>
+	<div
+		className="ready"
+		onClick={ () => patchState({ ready: !state.ready }) }
+	>
+		click
+	</div>;
+
+const Component = (context) => {
+	const { Example, color, orbitControl, environment, preset } = getInput();
 
 	return (
 		<div className="App" role="App">
 			<Canvas style={ { background: color } }>
-				<Camera/>
 				<Suspense fallback={ null }>
 					<Example { ...context }/>
-					<Environment background={ environment } preset={ preset }/>
+					 <Environment background={ environment } preset={ preset }/>
 				</Suspense>
 				{ orbitControl && <OrbitControls/> }
 			</Canvas>
 		</div>);
+};
+
+const App = (context) => {
+	const { state } = context;
+
+	return (
+		state.ready ? <Component { ...context }/> : <Ready { ...context }/>
+	);
 };
 
 export default App;

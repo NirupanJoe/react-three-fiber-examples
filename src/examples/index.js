@@ -4,8 +4,10 @@ import PositionalAudio from './positionalAudio';
 import SimpleBox from './simpleBox';
 import TextScroll from './textScroll';
 import TransparentBox from './transparentBox';
+import VideoTexture from './videoTexture';
 
 const examples = {
+	'Video Texture': VideoTexture,
 	'Simple Box': SimpleBox,
 	'Positional Audio': PositionalAudio,
 	'Transparent Box': TransparentBox,
