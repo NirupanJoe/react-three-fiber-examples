@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@laufire/resist': ^0.0.5
   '@laufire/utils': ^2.9.2
+  '@react-three/a11y': ^2.2.3
   '@react-three/drei': ^8.4.0
   '@react-three/fiber': ^7.0.24
   '@testing-library/jest-dom': ^5.14.1
@@ -22,6 +23,7 @@ specifiers:
 dependencies:
   '@laufire/resist': 0.0.5
   '@laufire/utils': 2.9.2
+  '@react-three/a11y': 2.2.3_bb06f07992b33e3e2fdc8faea3dfe0c0
   '@react-three/drei': 8.4.0_bb06f07992b33e3e2fdc8faea3dfe0c0
   '@react-three/fiber': 7.0.24_219cd54b391a5f28fe99f6b525368df2
   leva: 0.9.18_react-dom@17.0.2+react@17.0.2
@@ -2203,6 +2205,23 @@ packages:
 
   /@react-spring/types/9.4.2:
     resolution: {integrity: sha512-GGiIscTM+CEUNV52anj3g5FqAZKL2+eRKtvBOAlC99qGBbvJ3qTLImrUR/I3lXY7PRuLgzI6kh34quA1oUxWYQ==}
+    dev: false
+
+  /@react-three/a11y/2.2.3_bb06f07992b33e3e2fdc8faea3dfe0c0:
+    resolution: {integrity: sha512-hcPbGOLfYnBzv0EgBMWfq9upQL4EBSVjb20AUH5t5nZ6qoY/2II0yWHM3xFVzk8ZdZBDTHMe9tpoI0aQ0u82hQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@react-three/fiber': '>=6.0'
+      react: '>=17.0'
+      react-dom: '>=17.0'
+      three: '>=0.126.0'
+    dependencies:
+      '@react-three/fiber': 7.0.24_219cd54b391a5f28fe99f6b525368df2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      three: 0.136.0
+      utility-types: 3.10.0
+      zustand: 3.6.9_react@17.0.2
     dev: false
 
   /@react-three/drei/8.4.0_bb06f07992b33e3e2fdc8faea3dfe0c0:
