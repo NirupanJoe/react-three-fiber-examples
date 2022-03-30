@@ -1,3 +1,5 @@
+/* eslint-disable id-match */
+import A11yBox from './a11yBox/A11yBox';
 import GlassText from './glassText';
 import HorizontalTiles from './horizontalTiles';
 import Ocean from './ocean';
@@ -16,6 +18,7 @@ const examples = {
 	'Ocean': Ocean,
 	'HorizontalTiles': HorizontalTiles,
 	'TextScroll': TextScroll,
+	'A11yBox': A11yBox,
 };
 
 export default examples;
