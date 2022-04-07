@@ -5,23 +5,20 @@ import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TextureLoader } from 'three';
 
-const Texture = ({ nodes, texture, materials }) =>
+const Texture = ({ texture, materials }) =>
 	<mesh
-		geometry={ nodes.stacy.geometry }
 		material={ materials[''] }
 		material-map={ texture }
 		material-map-flipY={ false }
 	/>;
 
 const Scene = () => {
-	const { nodes, materials } = useLoader(GLTFLoader, `${ process.env.PUBLIC_URL }/model/stacy.gltf`);
+	const { nodes, materials, scene } = useLoader(GLTFLoader, `${ process.env.PUBLIC_URL }/model/stacy.gltf`);
 	const texture = useLoader(TextureLoader, `${ process.env.PUBLIC_URL }/model/stacy.jpg`);
 
-	// eslint-disable-next-line no-console
-	console.log(nodes);
 	return (
 		<group>
-			{false && <primitive object={ nodes }/>}
+			{true && <primitive object={ scene }/>}
 			{ true && <Texture { ...{ nodes, texture, materials } }/> }
 		</group>
 	);
